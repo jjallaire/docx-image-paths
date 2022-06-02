@@ -18,9 +18,12 @@ Where the content of `subdir/doc.md` is:
 Rendering to docx as follows gives a warning:
 
 ```bash
-$ pandoc subdir/doc.md --to docx --output doc.docx
+$ pandoc subdir/doc.md --to docx --output doc.docx --lua-filter filter.lua
 [WARNING] Could not fetch resource ../elephant.png: replacing image with description
+[ Para [ Span ( "" , [ "image" ] , [] ) [] ] ]
 ```
+
+The `filter.lua` prints the AST. Note that the image itself has been fully removed from the AST and replaced by a `Span` with class `image`.
 
 Note that this does not occur for other compound file formats like pdf and epub.
 
