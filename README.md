@@ -24,4 +24,4 @@ $ pandoc subdir/doc.md --to docx --output doc.docx
 
 Note that this does not occur for other compound file formats like pdf and epub.
 
-In the case of our application, we are appending together a bunch of .md files (which could be in various sub-directories) and have a Lua filter that fixes up all of the paths so that they are relative to the root directory where pandoc is called form. However, in the case of docx our filter never sees the path so fails to include the image.
+In the case of our application, we are appending together a bunch of .md files (which could be in various sub-directories) and have a Lua filter that fixes up all of the paths so that they are relative to the working directory where pandoc is called from. However, in the case of docx our filter never sees the path so fails to include the image.
